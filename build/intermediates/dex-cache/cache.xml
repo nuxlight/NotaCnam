@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/thibaud/NotaCnam/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="4486e953d1f35f8ccab098b1dd67146366d5f731">
+        <dex dex="/Users/thibaud/NotaCnam/app/build/intermediates/pre-dexed/debug/classes-60f22d785a5e2bb4d7b9e4730f2120c6bbc38f49.jar" />
+    </item>
+    <item
+        jar="/Users/thibaud/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="/Users/thibaud/NotaCnam/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-36de1434e12f86c2a24fa7f6f866ca17258f4a13.jar" />
+    </item>
+    <item
+        jar="/Users/thibaud/NotaCnam/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
+        <dex dex="/Users/thibaud/NotaCnam/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-186c0bc8e663e99c69f39b6c0a5d5705c865fec6.jar" />
+    </item>
+    <item
+        jar="/Users/thibaud/NotaCnam/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="f8efd0096475e0daf054267b61544e10dc776503">
+        <dex dex="/Users/thibaud/NotaCnam/app/build/intermediates/pre-dexed/debug/classes-848ffc74e0682b244aa8ff0efca67a9791273d46.jar" />
+    </item>
+
+</items>
