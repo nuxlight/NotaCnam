@@ -16,8 +16,15 @@ import java.net.URL;
 public class AuthClass {
 
     private String urlLogin = "http://iscople.gescicca.net/Cursus.aspx?cr=MPY";
-    private String compte_id = "36944";
-    private String code_auditeur= "MPY271047";
+    private String compte_id;
+    //private String compte_id = "36944";
+    //private String code_auditeur= "MPY271047";
+    private String code_auditeur;
+
+    public AuthClass(String user, String code){
+        this.compte_id = user;
+        this.code_auditeur = code;
+    }
 
     public boolean login() throws IOException {
         HttpURLConnection connection = (HttpURLConnection) new URL(urlLogin).openConnection();

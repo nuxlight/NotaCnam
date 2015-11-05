@@ -9,11 +9,11 @@
         <dex dex="/Users/thibaud/NotaCnam/app/build/intermediates/pre-dexed/debug/classes-60f22d785a5e2bb4d7b9e4730f2120c6bbc38f49.jar" />
     </item>
     <item
-        jar="/Users/thibaud/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
+        jar="/Users/thibaud/NotaCnam/jsoup-1.8.3/jsoup-1.8.3.jar"
         jumboMode="false"
         revision="21.1.1"
-        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
-        <dex dex="/Users/thibaud/NotaCnam/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-36de1434e12f86c2a24fa7f6f866ca17258f4a13.jar" />
+        sha1="3a86e137575e4a45f5a9eec407f8135512e823a2">
+        <dex dex="/Users/thibaud/NotaCnam/app/build/intermediates/pre-dexed/debug/jsoup-1.8.3-5c571bc11ecdf8b7feabfe366207180e01282fb3.jar" />
     </item>
     <item
         jar="/Users/thibaud/NotaCnam/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/libs/internal_impl-22.2.1.jar"
@@ -21,6 +21,20 @@
         revision="21.1.1"
         sha1="c471eaaba13ff64f6e0383d1c30a9cdc9a97efeb">
         <dex dex="/Users/thibaud/NotaCnam/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.1-186c0bc8e663e99c69f39b6c0a5d5705c865fec6.jar" />
+    </item>
+    <item
+        jar="/Users/thibaud/NotaCnam/json-simple-1.1.1/json-simple-1.1.1.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="5d6f9b6a9ddca2a28c0216cc44efb2e20d9c23b5">
+        <dex dex="/Users/thibaud/NotaCnam/app/build/intermediates/pre-dexed/debug/json-simple-1.1.1-bce7b83063eaf4203c071a9ea15151005ec162ca.jar" />
+    </item>
+    <item
+        jar="/Users/thibaud/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/22.2.1/support-annotations-22.2.1.jar"
+        jumboMode="false"
+        revision="21.1.1"
+        sha1="61a0ff5c29295ec56d7e0bd3d25d95dbf71b4b2b">
+        <dex dex="/Users/thibaud/NotaCnam/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.1-6c746cd6224012be791980ecccc0f7999938a942.jar" />
     </item>
     <item
         jar="/Users/thibaud/NotaCnam/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.1/jars/classes.jar"
