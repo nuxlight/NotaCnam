@@ -4,7 +4,7 @@ import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
 
-import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -21,7 +21,7 @@ import java.net.URL;
 /**
  * Created by thibaud on 31/10/15.
  */
-public class AuthClass extends AsyncTask<String, Void, JSONObject> {
+public class AuthClass extends AsyncTask<String, Void, JSONArray> {
 
     private String urlLogin = "http://iscople.gescicca.net/Cursus.aspx?cr=MPY";
     private String compte_id;
@@ -36,24 +36,24 @@ public class AuthClass extends AsyncTask<String, Void, JSONObject> {
     }
 
     @Override
-    protected JSONObject doInBackground(String... strings) {
+    protected JSONArray doInBackground(String... strings) {
         this.compte_id = strings[0];
         this.code_auditeur = strings[1];
         try {
             return getListOfNotes();
         } catch (IOException e) {
-            Log.e(getClass().getName(),"ERROR :"+e.toString());
+            Log.e(getClass().getName(), "ERROR :" + e.toString());
             return null;
         }
     }
 
     @Override
-    protected void onPostExecute(JSONObject jsonObject) {
+    protected void onPostExecute(JSONArray jsonObject) {
         authClassLisner.onNoteAreGettingon(jsonObject);
         super.onPostExecute(jsonObject);
     }
 
-    public JSONObject getListOfNotes() throws IOException {
+    public JSONArray getListOfNotes() throws IOException {
         HttpURLConnection connection = (HttpURLConnection) new URL(urlLogin).openConnection();
         connection.setRequestMethod("POST");
         connection.setDoOutput(true);
@@ -76,26 +76,31 @@ public class AuthClass extends AsyncTask<String, Void, JSONObject> {
         return MakeJsonNote();
     }
 
-    public JSONObject MakeJsonNote() throws IOException {
+    public JSONArray MakeJsonNote() throws IOException {
         File file = new File(filePath);
         Document document = Jsoup.parse(file, "UTF-8");
         Elements tableau = document.select("tr");
-        JSONObject jsonReturn = new JSONObject();
+        JSONArray jsonReturn = new JSONArray();
+        int b=0;
         for(Object elements : tableau.toArray()){
             Element intraDoc = (Element) elements;
-            JSONObject tempJson = new JSONObject();
+            JSONArray tempJson = new JSONArray();
             int a = 0;
             for(Object entry : intraDoc.select("span").toArray()){
                 Element intraEntry = (Element) entry;
-                tempJson.put("entry"+a,intraEntry.text());
+                //tempJson.put("entry"+a,intraEntry.text());
+                tempJson.add(intraEntry.text());
                 a++;
             }
             String[] entete = intraDoc.text().toString().split(" ");
             if(entete.length > 10 && entete.length != 13){
-                jsonReturn.put(entete[0] + entete[1] + entete[2]+"-"+entete[3], tempJson);
+                //jsonReturn.put(entete[0] + entete[1] + entete[2]+"-"+entete[3], tempJson);
+                //jsonReturn.put(b, tempJson);
+                jsonReturn.add(tempJson);
+                b++;
             }
         }
-        Log.w(getClass().getName(),"JSON Created : "+jsonReturn.toJSONString());
+        Log.w(getClass().getName(),"JSON Created : "+jsonReturn);
         return jsonReturn;
     }
 

@@ -1,10 +1,10 @@
 package trashcompagnie.notacnam;
 
-import org.json.simple.JSONObject;
+import org.json.simple.JSONArray;
 
 /**
  * Created by thibaud on 06/11/15.
  */
 public interface AuthClassLisner {
-    void onNoteAreGettingon(JSONObject resultJson);
+    void onNoteAreGettingon(JSONArray resultJson);
 }
