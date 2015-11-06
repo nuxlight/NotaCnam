@@ -1,5 +1,9 @@
 package trashcompagnie.notacnam;
 
+import android.content.Context;
+import android.os.AsyncTask;
+import android.util.Log;
+
 import org.json.simple.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -13,17 +17,38 @@ import java.net.URL;
 /**
  * Created by thibaud on 31/10/15.
  */
-public class AuthClass {
+public class AuthClass extends AsyncTask<String, Void, JSONObject> {
 
     private String urlLogin = "http://iscople.gescicca.net/Cursus.aspx?cr=MPY";
     private String compte_id;
+    private AuthClassLisner authClassLisner;
     //private String compte_id = "36944";
     //private String code_auditeur= "MPY271047";
     private String code_auditeur;
+    private Context appContext;
+    private String filePath;
 
-    public AuthClass(String user, String code){
-        this.compte_id = user;
-        this.code_auditeur = code;
+    public AuthClass(AuthClassLisner lisner, Context context){
+        appContext = context;
+        authClassLisner = lisner;
+    }
+
+    @Override
+    protected JSONObject doInBackground(String... strings) {
+        this.compte_id = strings[0];
+        this.code_auditeur = strings[1];
+        try {
+            return getListOfNotes();
+        } catch (IOException e) {
+            Log.e(getClass().getName(),"ERROR :"+e.toString());
+            return null;
+        }
+    }
+
+    @Override
+    protected void onPostExecute(JSONObject jsonObject) {
+        authClassLisner.onNoteAreGettingon(jsonObject);
+        super.onPostExecute(jsonObject);
     }
 
     public JSONObject getListOfNotes() throws IOException {
@@ -37,7 +62,9 @@ public class AuthClass {
         outputStream.close();
 
         InputStream stream = connection.getInputStream();
-        OutputStream outFile = new FileOutputStream("./notes.txt");
+        //Recuperation du reperoire de travail
+        filePath = appContext.getFilesDir().getPath().toString() + "./notes.txt";
+        OutputStream outFile = new FileOutputStream(filePath);
         int read = 0;
         byte[] bytes = new byte[1024];
         while ((read = stream.read(bytes)) != -1) {
@@ -47,7 +74,7 @@ public class AuthClass {
     }
 
     public JSONObject MakeJsonNote() throws IOException {
-        File file = new File("./notes.txt");
+        File file = new File(filePath);
         Document document = Jsoup.parse(file, "UTF-8");
         Elements tableau = document.select("tr");
         JSONObject jsonReturn = new JSONObject();
@@ -65,7 +92,8 @@ public class AuthClass {
                 jsonReturn.put(entete[0] + entete[1] + entete[2]+"-"+entete[3], tempJson);
             }
         }
-        System.out.println(jsonReturn.toJSONString());
+        Log.w(getClass().getName(),"JSON Created : "+jsonReturn.toJSONString());
         return jsonReturn;
     }
+
 }
