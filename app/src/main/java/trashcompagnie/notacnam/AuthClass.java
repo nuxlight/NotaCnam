@@ -1,7 +1,7 @@
 package trashcompagnie.notacnam;
 
-import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.util.Log;
 
 import org.json.simple.JSONObject;
@@ -10,7 +10,11 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -25,11 +29,9 @@ public class AuthClass extends AsyncTask<String, Void, JSONObject> {
     //private String compte_id = "36944";
     //private String code_auditeur= "MPY271047";
     private String code_auditeur;
-    private Context appContext;
     private String filePath;
 
-    public AuthClass(AuthClassLisner lisner, Context context){
-        appContext = context;
+    public AuthClass(AuthClassLisner lisner){
         authClassLisner = lisner;
     }
 
@@ -63,7 +65,8 @@ public class AuthClass extends AsyncTask<String, Void, JSONObject> {
 
         InputStream stream = connection.getInputStream();
         //Recuperation du reperoire de travail
-        filePath = appContext.getFilesDir().getPath().toString() + "./notes.txt";
+        filePath = Environment.getExternalStorageDirectory() + "/notes.txt";
+        Log.d(getClass().getName(),"File path"+filePath);
         OutputStream outFile = new FileOutputStream(filePath);
         int read = 0;
         byte[] bytes = new byte[1024];

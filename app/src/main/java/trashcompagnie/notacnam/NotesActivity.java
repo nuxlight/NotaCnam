@@ -19,7 +19,7 @@ public class NotesActivity extends AppCompatActivity implements AuthClassLisner 
         Bundle bundle = getIntent().getExtras();
         String compte_id = bundle.getString("compte");
         String code_auditeur = bundle.getString("audit");
-        AuthClass authTools = new AuthClass(NotesActivity.this, NotesActivity.this);
+        AuthClass authTools = new AuthClass(NotesActivity.this);
         String[] parms = {compte_id, code_auditeur};
         authTools.execute(parms);
         notesListe = (ListView) findViewById(R.id.liste_notes);
