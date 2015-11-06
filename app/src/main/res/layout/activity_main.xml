@@ -27,6 +27,7 @@
         android:text="Compte_id :"/>
 
     <EditText
+        android:singleLine="true"
         android:id="@+id/compte"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -43,6 +44,7 @@
         android:text="Code_auditeur :"/>
 
     <EditText
+        android:singleLine="true"
         android:id="@+id/auditeur"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

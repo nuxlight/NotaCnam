@@ -26,12 +26,12 @@ public class MainActivity extends AppCompatActivity {
         loginBtn = (Button) findViewById(R.id.login);
 
         //Check history user information
-        SharedPreferences preferences = getPreferences(getApplicationContext().MODE_PRIVATE);
-        labelOne.setText(preferences.getString("COMPTE",""));
-        labelTow.setText(preferences.getString("AUDITEUR",""));
+        SharedPreferences preferences = getSharedPreferences(MainActivity.class.getSimpleName(), 1);
+        labelOne.setText(preferences.getString("compte_id", ""));
+        labelTow.setText(preferences.getString("code_auditeur", ""));
 
         if(labelOne.getText().equals("") && labelTow.getText().equals("")){
-            AlertDialog.Builder dialog = new AlertDialog.Builder(getApplicationContext());
+            AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
             dialog.setMessage("Merci de remplir les champs");
             dialog.show();
         }
@@ -39,13 +39,29 @@ public class MainActivity extends AppCompatActivity {
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!labelOne.getText().equals("") && !labelTow.getText().equals("")){
+                if (!labelOne.getText().toString().isEmpty() && !labelTow.getText().toString().isEmpty()) {
+                    //Save user infromations
+                    saveUserPrefs(labelOne.getText().toString(), labelTow.getText().toString());
                     Intent intent = new Intent(getApplicationContext(), NotesActivity.class);
                     intent.putExtra("compte", labelOne.getText().toString());
                     intent.putExtra("audit", labelTow.getText().toString());
                     startActivity(intent);
                 }
+                else{
+                    final AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+                    dialog.setMessage("Merci de remplir les champs");
+                    dialog.setPositiveButton("ok", null);
+                    dialog.show();
+                }
             }
         });
+    }
+
+    private void saveUserPrefs(String compte_id, String code_auditeur) {
+        SharedPreferences preferences = getSharedPreferences(MainActivity.class.getSimpleName(), 1);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("compte_id", compte_id);
+        editor.putString("code_auditeur", code_auditeur);
+        editor.commit();
     }
 }

@@ -26,7 +26,7 @@ public class AuthClass {
         this.code_auditeur = code;
     }
 
-    public boolean login() throws IOException {
+    public JSONObject getListOfNotes() throws IOException {
         HttpURLConnection connection = (HttpURLConnection) new URL(urlLogin).openConnection();
         connection.setRequestMethod("POST");
         connection.setDoOutput(true);
@@ -43,8 +43,7 @@ public class AuthClass {
         while ((read = stream.read(bytes)) != -1) {
             outFile.write(bytes, 0, read);
         }
-        MakeJsonNote();
-        return false;
+        return MakeJsonNote();
     }
 
     public JSONObject MakeJsonNote() throws IOException {
