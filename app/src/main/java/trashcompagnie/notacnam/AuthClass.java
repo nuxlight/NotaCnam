@@ -96,6 +96,7 @@ public class AuthClass extends AsyncTask<String, Void, JSONArray> {
             if(entete.length > 10 && entete.length != 13){
                 //jsonReturn.put(entete[0] + entete[1] + entete[2]+"-"+entete[3], tempJson);
                 //jsonReturn.put(b, tempJson);
+                tempJson.add(a-a,entete[0] + entete[1] + entete[2]+"-"+entete[3]);
                 jsonReturn.add(tempJson);
                 b++;
             }
