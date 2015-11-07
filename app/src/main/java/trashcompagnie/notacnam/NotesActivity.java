@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import org.json.simple.JSONArray;
@@ -32,7 +33,10 @@ public class NotesActivity extends AppCompatActivity implements AuthClassLisner 
     public void onNoteAreGettingon(JSONArray resultJson) {
         ArrayList<String> newArray = toJsonList(resultJson);
         Log.i(getClass().getName(), "it's back : " + newArray);
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(NotesActivity.this,R.layout.liste_style, R.id.textList, newArray);
+        String[] updateNewArray = new String[newArray.size()];
+        updateNewArray = newArray.toArray(updateNewArray);
+        Log.i(getClass().getName(), "it's back lenght : " + updateNewArray.length);
+        ListAdapter arrayAdapter = new NotaArrayAdapteur(getApplicationContext(),updateNewArray);
         notesListe.setAdapter(arrayAdapter);
     }
 
@@ -42,7 +46,6 @@ public class NotesActivity extends AppCompatActivity implements AuthClassLisner 
         if (jsonArray != null) {
             for (int i=0;i<jsonArray.size();i++){
                 if(!jsonArray.get(i).toString().replace('"',' ').equals("[ AnnéeuniversitaireCode-Unité ]")){
-                    Log.d(getClass().getName(),"Json debug "+jsonArray.get(i).toString().replace('"',' '));
                     list.add(jsonArray.get(i).toString());
                 }
             }

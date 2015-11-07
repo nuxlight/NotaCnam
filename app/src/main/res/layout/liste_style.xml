@@ -2,13 +2,66 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:id="@+id/liste_style"
-    android:layout_height="150dp"
-    android:orientation="horizontal">
+    android:layout_height="200dp"
+    android:orientation="vertical">
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/textList"
-        android:text="NO DATA"
+        android:layout_height="25dp"
+        android:id="@+id/UE_txt"
+        android:text="XXXX-XXXX-ANG004"
         android:textSize="20dp"
         android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:id="@+id/TitleUE_txt"
+        android:text="Préparation au bullats"
+        android:textSize="20dp"
+        android:textStyle="italic"
+        android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:id="@+id/InscripUE_txt"
+        android:text="Inscription validée"
+        android:textSize="15dp"
+        android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:id="@+id/Note_1"
+        android:text="-"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:id="@+id/Note_2"
+        android:text="-"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:id="@+id/Region_txt"
+        android:text="Midi-Pyrénées"
+        android:textSize="15dp"
+        android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:id="@+id/Alternance_txt"
+        android:text="Alternance"
+        android:textSize="15dp"
+        android:textColor="#000"/>
+
 </LinearLayout>
