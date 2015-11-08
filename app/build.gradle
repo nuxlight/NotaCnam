@@ -6,10 +6,10 @@ android {
 
     defaultConfig {
         applicationId "trashcompagnie.notacnam"
-        minSdkVersion 21
+        minSdkVersion 15
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0"
+        versionName "0.1"
     }
     buildTypes {
         release {
