@@ -28,8 +28,6 @@ public class AuthClass extends AsyncTask<String, Void, JSONArray> {
     private String urlLogin = "http://iscople.gescicca.net/Cursus.aspx?cr=MPY";
     private String compte_id;
     private AuthClassLisner authClassLisner;
-    //private String compte_id = "36944";
-    //private String code_auditeur= "MPY271047";
     private String code_auditeur;
     private String filePath;
 
