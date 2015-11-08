@@ -89,8 +89,15 @@ public class AuthClass extends AsyncTask<String, Void, JSONArray> {
             int a = 0;
             for(Object entry : intraDoc.select("span").toArray()){
                 Element intraEntry = (Element) entry;
-                //tempJson.put("entry"+a,intraEntry.text());
-                tempJson.add(intraEntry.text());
+                if (!intraEntry.text().equals("Midi-Pyrénées")){
+                    if (!intraEntry.text().equals("1")){
+                        if (!intraEntry.text().equals("Cnam Alternance")){
+                            if (!intraEntry.text().equals("Inscription validée")){
+                                tempJson.add(intraEntry.text().replace(",",""));
+                            }
+                        }
+                    }
+                }
                 a++;
             }
             String[] entete = intraDoc.text().toString().split(" ");

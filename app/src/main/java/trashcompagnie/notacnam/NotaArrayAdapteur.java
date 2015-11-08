@@ -10,6 +10,9 @@ import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by thibaud on 06/11/15.
  */
@@ -38,26 +41,11 @@ public class NotaArrayAdapteur extends ArrayAdapter<String> {
 
         //Change strig in array
         String[] listOfElement = singleElement.split(",");
-        //Log.d(getClass().getName(), "Element of list is :" + listOfElement.toString());
 
         UE_text.setText(listOfElement[0].replace('[',' ').replace('"', '='));
         UE_Title.setText(listOfElement[1].replace('"', ' '));
-        Inscrit.setText(listOfElement[2].replace('"', ' '));
-        if(listOfElement.length == 7 && !listOfElement[3].isEmpty()){
-            Note1.setText(listOfElement[3].replace('"', ' '));
-            Region.setText(listOfElement[5].replace('"', ' '));
-            Altern.setText(listOfElement[6].replace(']',' ').replace('"',' '));
-        }
-        else if(listOfElement.length == 8 && !listOfElement[3].isEmpty() && !listOfElement[5].isEmpty()){
-            Note1.setText(listOfElement[3].replace('"', ' '));
-            Note2.setText(listOfElement[5].replace('"', ' '));
-            Region.setText(listOfElement[6].replace('"', ' '));
-            Altern.setText(listOfElement[7].replace(']',' ').replace('"',' '));
-        }
-        else {
-            Note1.setText("-");
-            Note2.setText("-");
-        }
+        Note1.setText(listOfElement[2].replace('"', ' ').replace("\\", ""));
+        Note2.setText(listOfElement[3].replace('"', ' ').replace("\\", "").replace(']',' '));
 
         return convertView;
     }
