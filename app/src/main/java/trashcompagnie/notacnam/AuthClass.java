@@ -1,6 +1,7 @@
 package trashcompagnie.notacnam;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
