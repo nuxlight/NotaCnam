@@ -42,13 +42,18 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (!labelOne.getText().toString().isEmpty() && !labelTow.getText().toString().isEmpty()) {
                     //Save user infromations
-                    saveUserPrefs(labelOne.getText().toString(), labelTow.getText().toString());
-                    Intent intent = new Intent(getApplicationContext(), NotesActivity.class);
+                    NotaPreferences notaPreferences = new NotaPreferences(getApplicationContext());
+                    notaPreferences.saveUserPrefs(labelOne.getText().toString(), labelTow.getText().toString());
+                    /*Intent intent = new Intent(getApplicationContext(), NotesActivity.class);
+                    intent.putExtra("compte", labelOne.getText().toString());
+                    intent.putExtra("audit", labelTow.getText().toString());
+                    startActivity(intent);*/
+                    //New intent to open new Activity
+                    Intent intent = new Intent(getApplicationContext(), DashActivity.class);
                     intent.putExtra("compte", labelOne.getText().toString());
                     intent.putExtra("audit", labelTow.getText().toString());
                     startActivity(intent);
-                }
-                else{
+                } else {
                     final AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
                     dialog.setMessage("Merci de remplir les champs");
                     dialog.setPositiveButton("ok", null);
@@ -56,13 +61,5 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    private void saveUserPrefs(String compte_id, String code_auditeur) {
-        SharedPreferences preferences = getSharedPreferences(MainActivity.class.getSimpleName(), 1);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("compte_id", compte_id);
-        editor.putString("code_auditeur", code_auditeur);
-        editor.commit();
     }
 }

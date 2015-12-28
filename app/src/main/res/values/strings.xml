@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">NotaCnam</string>
     <string name="welcome_msg">Connexion</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_dash">DashActivity</string>
+    <string name="action_settings">Settings</string>
 </resources>
