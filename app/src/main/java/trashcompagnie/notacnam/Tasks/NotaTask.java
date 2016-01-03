@@ -21,15 +21,15 @@ import java.net.URL;
 /**
  * Created by thibaud on 31/10/15.
  */
-public class AuthClass extends AsyncTask<String, Void, JSONArray> {
+public class NotaTask extends AsyncTask<String, Void, JSONArray> {
 
     private String urlLogin = "http://iscople.gescicca.net/Cursus.aspx?cr=MPY";
     private String compte_id;
-    private AuthClassLisner authClassLisner;
+    private NotaTaskListener authClassLisner;
     private String code_auditeur;
     private String filePath;
 
-    public AuthClass(AuthClassLisner lisner){
+    public NotaTask(NotaTaskListener lisner){
         authClassLisner = lisner;
     }
 

@@ -19,14 +19,14 @@ import java.util.ArrayList;
 import trashcompagnie.notacnam.Adapteurs.NotaArrayAdapteur;
 import trashcompagnie.notacnam.NotaPreferences;
 import trashcompagnie.notacnam.R;
-import trashcompagnie.notacnam.Tasks.AuthClass;
-import trashcompagnie.notacnam.Tasks.AuthClassLisner;
+import trashcompagnie.notacnam.Tasks.NotaTask;
+import trashcompagnie.notacnam.Tasks.NotaTaskListener;
 
-public class NotaFragment extends Fragment implements AuthClassLisner, SwipeRefreshLayout.OnRefreshListener {
+public class NotaFragment extends Fragment implements NotaTaskListener, SwipeRefreshLayout.OnRefreshListener {
     private ListView notesListe;
     private ProgressDialog loadDialog;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private AuthClass authTools;
+    private NotaTask authTools;
     private String[] userPrefs;
     private FragmentActivity faActivity;
     private View faLayout;
@@ -46,7 +46,7 @@ public class NotaFragment extends Fragment implements AuthClassLisner, SwipeRefr
         loadDialog = new ProgressDialog(getActivity());
         loadDialog.setMessage("Chargement des notes en cours...");
         loadDialog.setCancelable(false);
-        authTools = new AuthClass(this);
+        authTools = new NotaTask(this);
         String[] parms = userPrefs;
         authTools.execute(parms);
         loadDialog.show();
@@ -57,7 +57,7 @@ public class NotaFragment extends Fragment implements AuthClassLisner, SwipeRefr
 
     @Override
     public void onRefresh() {
-        authTools = new AuthClass(this);
+        authTools = new NotaTask(this);
         String[] parms = userPrefs;
         authTools.execute(parms);
     }

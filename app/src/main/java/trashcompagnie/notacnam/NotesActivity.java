@@ -13,20 +13,20 @@ import org.json.simple.JSONArray;
 import java.util.ArrayList;
 
 import trashcompagnie.notacnam.Adapteurs.NotaArrayAdapteur;
-import trashcompagnie.notacnam.Tasks.AuthClass;
-import trashcompagnie.notacnam.Tasks.AuthClassLisner;
+import trashcompagnie.notacnam.Tasks.NotaTask;
+import trashcompagnie.notacnam.Tasks.NotaTaskListener;
 
 /**
  * DEPRECATED Class, don't use it because now it's only Fragments
  * @author Thibaud Pellissier
  * @deprecated NOW
  */
-public class NotesActivity extends AppCompatActivity implements AuthClassLisner, SwipeRefreshLayout.OnRefreshListener {
+public class NotesActivity extends AppCompatActivity implements NotaTaskListener, SwipeRefreshLayout.OnRefreshListener {
 
     private ListView notesListe;
     private ProgressDialog loadDialog;
     private SwipeRefreshLayout swipeRefreshLayout;
-    private AuthClass authTools;
+    private NotaTask authTools;
     private String compte_id;
     private String code_auditeur;
 
@@ -44,7 +44,7 @@ public class NotesActivity extends AppCompatActivity implements AuthClassLisner,
         loadDialog.setMessage("Chargement des notes en cours...");
         loadDialog.setCancelable(false);
 
-        authTools = new AuthClass(NotesActivity.this);
+        authTools = new NotaTask(NotesActivity.this);
         String[] parms = {compte_id, code_auditeur};
         authTools.execute(parms);
         loadDialog.show();
@@ -57,7 +57,7 @@ public class NotesActivity extends AppCompatActivity implements AuthClassLisner,
 
     @Override
     public void onRefresh() {
-        authTools = new AuthClass(NotesActivity.this);
+        authTools = new NotaTask(NotesActivity.this);
         String[] parms = {compte_id, code_auditeur};
         authTools.execute(parms);
     }
