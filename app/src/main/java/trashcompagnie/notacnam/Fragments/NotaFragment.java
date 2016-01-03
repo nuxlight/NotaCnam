@@ -2,7 +2,6 @@ package trashcompagnie.notacnam.Fragments;
 
 import android.app.Fragment;
 import android.app.ProgressDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -17,11 +16,11 @@ import org.json.simple.JSONArray;
 
 import java.util.ArrayList;
 
-import trashcompagnie.notacnam.AuthClass;
-import trashcompagnie.notacnam.AuthClassLisner;
-import trashcompagnie.notacnam.NotaArrayAdapteur;
+import trashcompagnie.notacnam.Adapteurs.NotaArrayAdapteur;
 import trashcompagnie.notacnam.NotaPreferences;
 import trashcompagnie.notacnam.R;
+import trashcompagnie.notacnam.Tasks.AuthClass;
+import trashcompagnie.notacnam.Tasks.AuthClassLisner;
 
 public class NotaFragment extends Fragment implements AuthClassLisner, SwipeRefreshLayout.OnRefreshListener {
     private ListView notesListe;

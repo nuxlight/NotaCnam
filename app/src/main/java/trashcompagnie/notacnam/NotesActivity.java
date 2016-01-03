@@ -5,13 +5,17 @@ import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import org.json.simple.JSONArray;
 
 import java.util.ArrayList;
+
+import trashcompagnie.notacnam.Adapteurs.NotaArrayAdapteur;
+import trashcompagnie.notacnam.Tasks.AuthClass;
+import trashcompagnie.notacnam.Tasks.AuthClassLisner;
+
 /**
  * DEPRECATED Class, don't use it because now it's only Fragments
  * @author Thibaud Pellissier

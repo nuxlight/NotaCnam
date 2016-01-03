@@ -1,4 +1,4 @@
-package trashcompagnie.notacnam;
+package trashcompagnie.notacnam.Tasks;
 
 import org.json.simple.JSONArray;
 

@@ -1,16 +1,16 @@
 package trashcompagnie.notacnam;
 
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends ActionBarActivity {
 
     private EditText labelOne;
     private EditText labelTow;
@@ -20,6 +20,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Configure Toolbar
+        Toolbar toolbar =   (Toolbar) findViewById(R.id.main_toolbar);
+        setSupportActionBar(toolbar);
+        android.support.v7.app.ActionBar bar = getSupportActionBar();
 
         //Configure label and button
         labelOne = (EditText) findViewById(R.id.compte);
