@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:id="@+id/list_cal_style"
+    android:layout_height="400dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:id="@+id/Jours"
+        android:text="Lundi"
+        android:textSize="40dp"
+        android:textColor="@color/colorPrimary"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Matin"
+        android:textSize="30dp"
+        android:layout_height="35dp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/matiere_mat"
+        android:text="XXXXX - Systèmes Embarqués Mobiles"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/prof_mat"
+        android:text="D.Michel"
+        android:textSize="20dp"
+        android:textColor="#000"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:text="Après-midi"
+        android:textSize="30dp"
+        android:layout_height="35dp" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:id="@+id/matiere_ap"
+        android:text="XXXXX - Systèmes Embarqués Mobiles"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        android:textColor="#000"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:id="@+id/prof_ap"
+        android:text="D.Michel"
+        android:textSize="20dp"
+        android:textColor="#000"/>
+
+</LinearLayout>
